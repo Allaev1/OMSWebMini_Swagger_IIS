@@ -21,7 +21,9 @@ namespace OMSWebMini.Controllers
             _context = context;
         }
 
-        // GET: api/Categories
+        /// <summary>
+        /// Returns categories
+        /// </summary>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Category>>> GetCategories(bool showPicture)
         {
@@ -37,6 +39,11 @@ namespace OMSWebMini.Controllers
                 }).ToListAsync();
         }
 
+        /// <summary>
+        /// Return category by ID
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // GET: api/Categories/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Category>> GetCategory(int id)
@@ -51,6 +58,24 @@ namespace OMSWebMini.Controllers
             return category;
         }
 
+        /// <summary>
+        /// Updates category
+        /// </summary>
+        /// <param name="id">
+        /// Id of category that you want to update
+        /// </param>
+        /// <param name="category">
+        /// Updated category 
+        /// </param>
+        /// <remarks>
+        /// Sample request(use this sample to insert your data):
+        ///
+        ///     {
+        ///        "categoryName": "UpdatedCategoryName",
+        ///        "description": "UpdatedDescription",
+        ///     }
+        ///
+        /// </remarks>        
         // PUT: api/Categories/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
@@ -83,6 +108,18 @@ namespace OMSWebMini.Controllers
             return NoContent();
         }
 
+        /// <summary>
+        /// Add new category
+        /// </summary>
+        /// <remarks>
+        /// Sample request(use this sample to insert your data):
+        ///
+        ///     {
+        ///        "categoryName": "YourCategoryName",
+        ///        "description": "YourDescription",
+        ///     }
+        ///
+        /// </remarks>        
         // POST: api/Categories
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
@@ -95,6 +132,11 @@ namespace OMSWebMini.Controllers
             return CreatedAtAction(nameof(GetCategory), new { id = category.CategoryId }, category);
         }
 
+        /// <summary>
+        /// Delete category
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // DELETE: api/Categories/5
         [HttpDelete("{id}")]
         public async Task<ActionResult<Category>> DeleteCategory(int id)

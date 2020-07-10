@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>OMSWebMini</name>
+    </assembly>
+    <members>
+        <member name="M:OMSWebMini.Controllers.CategoriesController.GetCategories(System.Boolean)">
+            <summary>
+            Returns categories
+            </summary>
+        </member>
+        <member name="M:OMSWebMini.Controllers.CategoriesController.GetCategory(System.Int32)">
+            <summary>
+            Return category by ID
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OMSWebMini.Controllers.CategoriesController.PutCategory(System.Int32,OMSWebMini.Model.Category)">
+             <summary>
+             Updates category
+             </summary>
+             <param name="id">
+             Id of category that you want to update
+             </param>
+             <param name="category">
+             Updated category 
+             </param>
+             <remarks>
+             Sample request(use this sample to insert your data):
+            
+                 {
+                    "categoryName": "UpdatedCategoryName",
+                    "description": "UpdatedDescription",
+                 }
+            
+             </remarks>        
+        </member>
+        <member name="M:OMSWebMini.Controllers.CategoriesController.PostCategory(OMSWebMini.Model.Category)">
+             <summary>
+             Add new category
+             </summary>
+             <remarks>
+             Sample request(use this sample to insert your data):
+            
+                 {
+                    "categoryName": "YourCategoryName",
+                    "description": "YourDescription",
+                 }
+            
+             </remarks>        
+        </member>
+        <member name="M:OMSWebMini.Controllers.CategoriesController.DeleteCategory(System.Int32)">
+            <summary>
+            Delete category
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

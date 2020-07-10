@@ -12,6 +12,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using System.Reflection;
+using System.IO;
 
 namespace OMSWebMini
 {
@@ -40,6 +42,10 @@ namespace OMSWebMini
                     Title="OMSWebMini_Swagger_IIS",
                     Description= "This project based on <a href=\"https://github.com/Allaev1/OMSWebMini\">this project</a>. This project adds Swagger middlewear and works on IIS.",                    
                 });
+
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                c.IncludeXmlComments(xmlPath);
             });
 
             services.AddControllers();
